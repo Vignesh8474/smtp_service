@@ -18,7 +18,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	//Get ther value from the env file
+	//Get the value from the env file
 	hostName := os.Getenv("hostName")
 	from := os.Getenv("from")
 	pass_key := os.Getenv("pass_Key")
@@ -29,6 +29,9 @@ func main() {
 	//Convert string into int for port
 	smtPort, err := strconv.Atoi(port)
 
+	if err != nil {
+		log.Fatal(err)
+	}
 	//Calling the function
 	sendGoMail(hostName, smtPort, from, pass_key)
 }
